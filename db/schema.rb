@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140530005816) do
+ActiveRecord::Schema.define(version: 20140530011954) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "allergens", force: true do |t|
+    t.integer  "allergenId"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "dietitians", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -36,6 +43,38 @@ ActiveRecord::Schema.define(version: 20140530005816) do
 
   add_index "dietitians", ["email"], name: "index_dietitians_on_email", unique: true, using: :btree
   add_index "dietitians", ["reset_password_token"], name: "index_dietitians_on_reset_password_token", unique: true, using: :btree
+
+  create_table "focus_groups", force: true do |t|
+    t.integer  "focusGroupId"
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "ingredients", force: true do |t|
+    t.integer  "ingredientId"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "recipe_ingredients", force: true do |t|
+    t.integer  "recipeId"
+    t.integer  "ingredientId"
+    t.string   "amount"
+    t.string   "unit"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "recipe_steps", force: true do |t|
+    t.string   "recipeId"
+    t.integer  "stepId"
+    t.string   "directions"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "recipes", force: true do |t|
     t.datetime "created_at"
