@@ -4,7 +4,6 @@ class CreateRecipeSteps < ActiveRecord::Migration
       t.string :recipeId
       t.integer :stepId
       t.string :directions
-
       t.timestamps
     end
   end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140530011954) do
+ActiveRecord::Schema.define(version: 20140530012903) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,6 +88,14 @@ ActiveRecord::Schema.define(version: 20140530011954) do
     t.string   "ageGroup"
     t.string   "targetGroup"
     t.integer  "dietitianId"
+  end
+
+  create_table "step_ingredients", force: true do |t|
+    t.integer  "stepId"
+    t.integer  "ingredientId"
+    t.integer  "stepNumber"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
