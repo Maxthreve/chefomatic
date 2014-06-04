@@ -4,7 +4,15 @@ Chefomatic::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  devise_scope :dietitian do
+    # authenticated :dietitian do
+    #   root :to => 'devise/registrations#new', as: :authenticated_root
+    # end
+    unauthenticated :dietitian do
+      root :to => 'devise/registrations#new', as: :unauthenticated_root
+    end
+  end
+  # root 'devise/registrations#new'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
