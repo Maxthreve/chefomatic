@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20140530012903) do
   enable_extension "plpgsql"
 
   create_table "allergens", force: true do |t|
-    t.integer  "allergenId"
+    t.integer  "allergen_id"
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20140530012903) do
   add_index "dietitians", ["reset_password_token"], name: "index_dietitians_on_reset_password_token", unique: true, using: :btree
 
   create_table "focus_groups", force: true do |t|
-    t.integer  "focusGroupId"
+    t.integer  "focus_group_id"
     t.string   "name"
     t.string   "description"
     t.datetime "created_at"
@@ -53,15 +53,15 @@ ActiveRecord::Schema.define(version: 20140530012903) do
   end
 
   create_table "ingredients", force: true do |t|
-    t.integer  "ingredientId"
+    t.integer  "ingredient_id"
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "recipe_ingredients", force: true do |t|
-    t.integer  "recipeId"
-    t.integer  "ingredientId"
+    t.integer  "recipe_id"
+    t.integer  "ingredient_id"
     t.string   "amount"
     t.string   "unit"
     t.datetime "created_at"
@@ -69,8 +69,8 @@ ActiveRecord::Schema.define(version: 20140530012903) do
   end
 
   create_table "recipe_steps", force: true do |t|
-    t.string   "recipeId"
-    t.integer  "stepId"
+    t.string   "recipe_id"
+    t.integer  "step_id"
     t.string   "directions"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -91,9 +91,9 @@ ActiveRecord::Schema.define(version: 20140530012903) do
   end
 
   create_table "step_ingredients", force: true do |t|
-    t.integer  "stepId"
-    t.integer  "ingredientId"
-    t.integer  "stepNumber"
+    t.integer  "step_id"
+    t.integer  "ingredient_id"
+    t.integer  "step_number"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

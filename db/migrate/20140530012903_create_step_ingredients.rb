@@ -1,9 +1,9 @@
 class CreateStepIngredients < ActiveRecord::Migration
   def change
     create_table :step_ingredients do |t|
-      t.integer :stepId
-      t.integer :ingredientId
-      t.integer :stepNumber
+      t.integer :step_id
+      t.integer :ingredient_id
+      t.integer :step_number
 
       t.timestamps
     end
