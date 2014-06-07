@@ -1,4 +1,7 @@
 Chefomatic::Application.routes.draw do
+  get "recipe_ingredients/add"
+  get "recipe_ingredient/add"
+  get "welcome/index"
   devise_for :dietitians
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -12,6 +15,11 @@ Chefomatic::Application.routes.draw do
       root :to => 'devise/registrations#new', as: :unauthenticated_root
     end
   end
+# outside the context of the sign in so we can just play with the code and not have to sign in
+
+  resources :recipes do
+    resources :recipe_ingredients
+  end 
   # root 'devise/registrations#new'
 
   # Example of regular route:

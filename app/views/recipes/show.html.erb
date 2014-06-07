@@ -1,0 +1,14 @@
+<p>
+  <strong> Name: </strong>
+  <%= @recipe.name %> <br>
+
+  <!-- <%= @recipe.prep_time%>/ -->
+
+</p>
+<p>
+<strong>Prep Time</strong>
+<%= @recipe.prep_time %>
+
+</p>
+<%= link_to 'Back', recipes_path %>
+  <%= link_to 'Edit', edit_recipe_path(@recipe) %>
