@@ -1,5 +1,5 @@
 class Recipe < ActiveRecord::Base
-  validates :name, presence: true, length:{ minimum: 3} 
+  validates :name, presence: true, length:{ minimum: 3}
   belongs_to :dietitian
   has_many :recipe_steps
   has_many :recipe_ingredients

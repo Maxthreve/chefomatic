@@ -8,7 +8,9 @@ class RecipesController < ApplicationController
     # binding.pry
     #params
 
-      @recipe = Recipe.new(recipe_params) #(params[:recipe])
+      # @recipe = Recipe.new(recipe_params) #(params[:recipe])
+      @recipe = current_dietitian.recipes.new(recipe_params)
+
       if @recipe.save
         redirect_to @recipe
       else
@@ -23,7 +25,10 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find(params[:id])
-  end
+    # every ingredient step
+    @ingredients = Ingredient.all
+    @ingredient = @recipe.recipe_ingredients.ingredients.new
+end
 
   def index
     @recipes = Recipe.all
@@ -46,7 +51,7 @@ class RecipesController < ApplicationController
     @recipe.destroy
     redirect_to recipes_path
   end
-  
+
   private
   #everything below this will be private so make sure you account for that
 
