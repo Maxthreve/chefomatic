@@ -4,7 +4,7 @@
 	<% @ingredient.allergens.each do |allergen| %>
 	
 	
-		<li><a href="#"><%= allergen.name %></a></li> <!-- link to allergin show page eventually -->
+		<li><a href="<%= allergen_url(allergen.id) %>"><%= allergen.name %></a></li> <!-- link to allergin show page eventually -->
 	
 	<% end %>
 </ul>
