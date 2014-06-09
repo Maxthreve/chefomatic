@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  recipeId: 1
+  ingredientId: 1
+  amount: MyString
+  unit: MyString
+
+two:
+  recipeId: 1
+  ingredientId: 1
+  amount: MyString
+  unit: MyString

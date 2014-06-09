@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  focusGroupId: 1
+  name: MyString
+  description: MyString
+
+two:
+  focusGroupId: 1
+  name: MyString
+  description: MyString

@@ -1,0 +1,45 @@
+<p>
+  <strong> Name: </strong>
+  <%= @recipe.name %> <br>
+
+  <!-- <%= @recipe.prep_time%>/ -->
+
+</p>
+<p>
+	<strong>Prep Time</strong>
+	<%= @recipe.prep_time %>
+
+</p>
+
+<% @recipe.recipe_ingredients.each do |recipe_ingredient| %>
+
+	<form action="<%= recipe_recipe_ingredient_url(@recipe.id, recipe_ingredient.id) %>" method="post">
+		<input type="hidden" name="_method" value="patch">
+		<%= auth_token %>
+	  <div class="input">
+	    <label for="unit">Unit</label>
+	    <input type="text" id="unit" name="recipe_ingredient[unit]" value="">
+	  </div>
+
+	  <div class="input">
+	    <label for="user-password">Amount</label>
+	    <input type="text" id="amount" name="recipe_ingredient[amount]" value="">
+		</div>
+	
+	  <div class="submit">
+	    <input type="submit" value="Submit">
+	  </div>
+	</form>
+
+<% end %>
+
+<h2> Add Recipe Ingredient </h2>
+
+
+
+
+
+
+
+<%= link_to 'Back', recipes_path %>
+  <%= link_to 'Edit', edit_recipe_path(@recipe) %>
