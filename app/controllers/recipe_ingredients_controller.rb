@@ -32,7 +32,24 @@ class RecipeIngredientsController < ApplicationController
   end
   #passing @recipe_ingredient to the show viwe
   def update
-  @recipe_ingredient = Recipe_ingredient.find(params[:id])
+    recipe = Recipe.find(params[:recipe_id])
+    @recipe_ingredient = recipe.recipe_ingredients.find(params[:id])
+    if @recipe_ingredient.update_attributes(recipe_ingredient_params)
+      flash.now[:messages] = ["successful update"]
+    else
+      flash.now[:errors] = @recipe_ingredient.errors.full_messages
+    end
+    redirect_to :back
+  end
+  
+  def destroy
+    recipe_ingredient = RecipeIngredient.find(params[:id])
+    if recipe_ingredient.destroy
+      
+    else
+      flash.now[:errors] = ["could not delete this recipe ingredient"]
+    end
+    redirect_to :back
   end
 
 

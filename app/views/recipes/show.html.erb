@@ -20,18 +20,29 @@
 		<%= auth_token %>
 	  <div class="input">
 	    <label for="unit">Unit</label>
-	    <input type="text" id="unit" name="recipe_ingredient[unit]" value="">
+	    <input type="text" id="unit" name="recipe_ingredient[unit]" value="<%= recipe_ingredient.unit %>">
 	  </div>
 
 	  <div class="input">
 	    <label for="user-password">Amount</label>
-	    <input type="text" id="amount" name="recipe_ingredient[amount]" value="">
+	    <input type="text" id="amount" name="recipe_ingredient[amount]" value="<%= recipe_ingredient.amount %>">
 		</div>
 	
 	  <div class="submit">
-	    <input type="submit" value="Submit">
+	    <input type="submit" value="update">
 	  </div>
 	</form>
+	
+	
+	<form action="<%= recipe_ingredient_url(recipe_ingredient.id) %>" method="post">
+		<%= auth_token %>
+		<input type="hidden" name="_method" value="delete">
+		
+	  <div class="submit">
+	    <input type="submit" value="delete">
+	  </div>
+	</form>
+	
 
 <% end %>
 

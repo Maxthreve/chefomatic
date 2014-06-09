@@ -20,8 +20,10 @@ Chefomatic::Application.routes.draw do
 # outside the context of the sign in so we can just play with the code and not have to sign in
 
   resources :recipes do
-    resources :recipe_ingredients
+    resources :recipe_ingredients, except: [:destroy]
   end 
+  
+  resources :recipe_ingredients, only: [:destroy]
   
   resources :ingredients
   resources :allergens
