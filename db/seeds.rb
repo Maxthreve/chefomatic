@@ -13,5 +13,3 @@ ingredients = ["wheat", "milk", "mysterious powder from a witches pocket"]
   allergen = Allergen.create({name: allergens[item]})
   allergen.ingredients.create({name: ingredients[item]})
 end
-
-  

@@ -1,4 +1,6 @@
 Chefomatic::Application.routes.draw do
+  # get "allergen_ingredient_links/create"
+#   get "allergen_ingredient_links/destroy"
   get "ingredients/add"
   get "recipe_ingredients/add"
   get "recipe_ingredient/add"
@@ -25,8 +27,12 @@ Chefomatic::Application.routes.draw do
   
   resources :recipe_ingredients, only: [:destroy]
   
-  resources :ingredients
-  resources :allergens
+  resources :ingredients do
+    resources :allergen_ingredient_links, only: [:create, :destroy]
+  end
+  resources :allergens do
+    resources :allergen_ingredient_links, only: [:create, :destroy]
+  end
   
   # root 'devise/registrations#new'
 

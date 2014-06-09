@@ -10,15 +10,11 @@
 </ul>
 
 <h2>Add Possible Allergens</h2>
-<form action="<%= ingredient_url(@ingredient.id) %>" method="post">
-	<input type="hidden" name="_method" value="patch">
+<form action="<%= ingredient_allergen_ingredient_links_url(@ingredient.id) %>" method="post">
 	<%= auth_token %>
 
   <div class="input">
-    <label for="allergen-name">Allergen</label>
-		
-		<input type="hidden" name="ingredient[name]" value="">
-		
+    <label for="allergen-name">Allergen</label>		
     <input type="text" id="allergen-name" name="allergen[name]" value="">
 	</div>
 	

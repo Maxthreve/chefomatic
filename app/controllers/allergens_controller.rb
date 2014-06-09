@@ -5,7 +5,6 @@ class AllergensController < ApplicationController
     redirect_to :back
   end
   
-  
   private
   def allergen_params
     params.require(:allergen).permit(:name)
