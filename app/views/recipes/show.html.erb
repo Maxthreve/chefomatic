@@ -13,6 +13,8 @@
 
 <% @recipe.recipe_ingredients.each do |recipe_ingredient| %>
 
+	<a href="<%= ingredient_url(recipe_ingredient.ingredient) %>"><%= recipe_ingredient.ingredient.name %></a>
+
 	<form action="<%= recipe_recipe_ingredient_url(@recipe.id, recipe_ingredient.id) %>" method="post">
 		<input type="hidden" name="_method" value="patch">
 		<%= auth_token %>
@@ -35,7 +37,28 @@
 
 <h2> Add Recipe Ingredient </h2>
 
+	<form action="<%= recipe_recipe_ingredients_url(@recipe.id) %>" method="post">
+		
+		<%= auth_token %>
+	  <div class="input">
+	    <label for="recipe_ingredient_name">Name</label>
+	    <input type="text" id="recipe_ingredient_name" name="recipe_ingredient[name]" value="">
+	  </div>
+		
+	  <div class="input">
+	    <label for="unit">Unit</label>
+	    <input type="text" id="unit" name="recipe_ingredient[unit]" value="">
+	  </div>
 
+	  <div class="input">
+	    <label for="user-password">Amount</label>
+	    <input type="text" id="amount" name="recipe_ingredient[amount]" value="">
+		</div>
+	
+	  <div class="submit">
+	    <input type="submit" value="Submit">
+	  </div>
+	</form>
 
 
 

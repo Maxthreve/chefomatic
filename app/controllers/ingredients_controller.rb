@@ -3,11 +3,15 @@ class IngredientsController < ApplicationController
   #  or because ingrdient only belongs to recipe_ingredient
   # i can get away with just ceating the recipe ingredient
   def create
-  @ingredient = Ingredient.new(ingredient_params) #(params[:recipe])
+    @ingredient = Ingredient.new(ingredient_params) #(params[:recipe])
 
       # @recipe_ingredient = Recipe_ingredient.find(params[:recipe_ingredient_id])
       # @ingredient = @recipe_ingredient.ingredients.create(ingredient_params)
       redirect_to :back #recipe_ingredient_path(@ingredient)
+  end
+  
+  def show
+    @ingredient = Ingredient.find(params[:id])
   end
 
   # ingredients just have a name

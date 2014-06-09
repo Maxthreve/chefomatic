@@ -22,6 +22,9 @@ Chefomatic::Application.routes.draw do
   resources :recipes do
     resources :recipe_ingredients
   end 
+  
+  resources :ingredients
+  
   # root 'devise/registrations#new'
 
   # Example of regular route:
