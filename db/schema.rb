@@ -11,21 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140609035902) do
+ActiveRecord::Schema.define(version: 20140609193509) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "allergen_ingredient_links", force: true do |t|
+    t.integer  "allergen_id"
+    t.integer  "ingredient_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "allergens", force: true do |t|
     t.integer  "allergen_id"
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "allergens_ingredients", id: false, force: true do |t|
-    t.integer "allergen_id"
-    t.integer "ingredient_id"
   end
 
   create_table "dietitians", force: true do |t|

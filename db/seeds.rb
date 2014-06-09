@@ -5,3 +5,13 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+allergens = ["gluten", "lactose", "magic mushroom"]
+ingredients = ["wheat", "milk", "mysterious powder from a witches pocket"]
+
+3.times do |item|
+  allergen = Allergen.create({name: allergens[item]})
+  allergen.ingredients.create({name: ingredients[item]})
+end
+
+  
