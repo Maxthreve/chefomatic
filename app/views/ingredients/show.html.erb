@@ -1,1 +1,17 @@
 <h1><%= @ingredient.name %></h1>
+
+<ul>
+	<% @ingredient.allergens.each do |allergen| %>
+	
+	
+		<li><%= allergen.name %></li>
+	
+	<% end %>
+</ul>
+
+<h2>Add Possible Allergens</h2>
+<form action="<%=  %>">
+
+	
+</form>
+	
