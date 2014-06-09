@@ -24,6 +24,7 @@ Chefomatic::Application.routes.draw do
   end 
   
   resources :ingredients
+  resources :allergens
   
   # root 'devise/registrations#new'
 

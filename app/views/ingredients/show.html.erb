@@ -4,14 +4,24 @@
 	<% @ingredient.allergens.each do |allergen| %>
 	
 	
-		<li><%= allergen.name %></li>
+		<li><a href="#"><%= allergen.name %></a></li> <!-- link to allergin show page eventually -->
 	
 	<% end %>
 </ul>
 
 <h2>Add Possible Allergens</h2>
-<form action="<%=  %>">
+<form action="<%= allergens_url %>" method="post">
 
+	<%= auth_token %>
+
+  <div class="input">
+    <label for="allergen-name">Amount</label>
+    <input type="text" id="allergen-name" name="allergen[name]" value="">
+	</div>
 	
+
+  <div class="submit">
+    <input type="submit" value="Submit">
+  </div>
 </form>
 	
