@@ -70,7 +70,17 @@
 	    <input type="submit" value="Submit">
 	  </div>
 	</form>
+<h2> Add Recipe Step </h2>
+	<ul>
+		<% @recipe.recipe_steps.order(:step_number).each do |recipe_step| %>
 
+		<li> <%= recipe_step.step_number %> <%= recipe_step.directions %></li>
+
+		<li> <%= render partial: "layouts/recipe_step_update", locals: { recipe_step: recipe_step, recipe: @recipe } %></li>	
+		
+		<%end%>
+	</ul>
+	
 	<form action="<%= recipe_recipe_steps_url(@recipe.id)%>" method="post">
 		
 		<%= auth_token %>

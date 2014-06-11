@@ -1,0 +1,26 @@
+<form action="<%= recipe_recipe_step_url(recipe.id, recipe_step.id) %>" method="post">
+	<input type="hidden" name="_method" value="patch">
+		<%= auth_token %>
+	  <div class="input">
+	    <label for="step_number">Step</label>
+	    <input type="text" id="step_number" name="recipe_step[step_number]" value="<%= recipe_step.step_number %>">
+	  </div>
+
+		<div class="input">
+		<label for"directions">Directions</label>
+		<textarea  id="directions" name="recipe_step[directions]"></textarea>
+		</div>
+
+	  <div class="submit">
+	    <input type="submit" value="update">
+	  </div>
+</form>
+<form action="<%= recipe_recipe_step_url(recipe.id , recipe_step.id ) %>" method="post">
+		<%= auth_token %>
+  <input type="hidden" name="_method" value="delete">
+
+  <div class="submit">
+    <input type="submit" value="delete">
+  </div>
+
+</form>

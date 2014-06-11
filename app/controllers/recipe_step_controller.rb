@@ -17,7 +17,7 @@ def create
 end
 	private
 	def recipe_step_params
-		params.require(:recipe_step).permit(:step, :directions)
+		params.require(:recipe_step).permit(:step_number, :directions)
 	end 
 
 end
