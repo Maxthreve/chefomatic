@@ -9,10 +9,16 @@ class IngredientsController < ApplicationController
       # @ingredient = @recipe_ingredient.ingredients.create(ingredient_params)
       redirect_to :back #recipe_ingredient_path(@ingredient)
   end
-  
+
   def show
     @ingredient = Ingredient.find(params[:id])
   end
+
+  def index
+    @ingredients = Ingredient.all
+
+  end
+
 
   # ingredients just have a name
   private

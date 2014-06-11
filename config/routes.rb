@@ -23,17 +23,18 @@ Chefomatic::Application.routes.draw do
 
   resources :recipes do
     resources :recipe_ingredients, except: [:destroy]
-  end 
-  
+    resources :recipe_steps
+  end
+
   resources :recipe_ingredients, only: [:destroy]
-  
+
   resources :ingredients do
     resources :allergen_ingredient_links, only: [:create, :destroy]
   end
   resources :allergens do
     resources :allergen_ingredient_links, only: [:create, :destroy]
   end
-  
+
   # root 'devise/registrations#new'
 
   # Example of regular route:

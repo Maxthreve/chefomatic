@@ -24,54 +24,71 @@
 	  </div>
 
 	  <div class="input">
-	    <label for="user-password">Amount</label>
+	    <label for="amount">Amount</label>
 	    <input type="text" id="amount" name="recipe_ingredient[amount]" value="<%= recipe_ingredient.amount %>">
 		</div>
-	
+
 	  <div class="submit">
 	    <input type="submit" value="update">
 	  </div>
 	</form>
-	
-	
+
+
 	<form action="<%= recipe_ingredient_url(recipe_ingredient.id) %>" method="post">
 		<%= auth_token %>
 		<input type="hidden" name="_method" value="delete">
-		
+
 	  <div class="submit">
 	    <input type="submit" value="delete">
 	  </div>
 	</form>
-	
+
 
 <% end %>
 
 <h2> Add Recipe Ingredient </h2>
 
 	<form action="<%= recipe_recipe_ingredients_url(@recipe.id) %>" method="post">
-		
+
 		<%= auth_token %>
 	  <div class="input">
 	    <label for="recipe_ingredient_name">Name</label>
 	    <input type="text" id="recipe_ingredient_name" name="recipe_ingredient[name]" value="">
 	  </div>
-		
+
 	  <div class="input">
 	    <label for="unit">Unit</label>
 	    <input type="text" id="unit" name="recipe_ingredient[unit]" value="">
 	  </div>
 
 	  <div class="input">
-	    <label for="user-password">Amount</label>
+	    <label for="amount">Amount</label>
 	    <input type="text" id="amount" name="recipe_ingredient[amount]" value="">
 		</div>
-	
+
 	  <div class="submit">
 	    <input type="submit" value="Submit">
 	  </div>
 	</form>
 
-
+	<form action="<%= recipe_recipe_steps_url(@recipe.id)%>" method="post">
+		
+		<%= auth_token %>
+		<div class="input">
+		<label for"step_number">Step</label>
+		<input type="text" id="step_number" name="recipe_step[step_number]" value="">
+		</div>
+		
+		<div class="input">
+		<label for"directions">Directions</label>
+		<textarea  id="directions" name="recipe_step[directions]"></textarea>
+		</div>
+		
+		<div class="submit">
+	      <input type="submit" value="Submit">
+	  	</div>
+	
+	</form>
 
 
 

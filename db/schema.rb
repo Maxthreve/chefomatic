@@ -1,4 +1,4 @@
-# encoding: UTF-8
+  # encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140609193509) do
+ActiveRecord::Schema.define(version: 20140610021944) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,10 +76,11 @@ ActiveRecord::Schema.define(version: 20140609193509) do
 
   create_table "recipe_steps", force: true do |t|
     t.string   "recipe_id"
-    t.integer  "step_id"
     t.string   "directions"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "step_number"
+    t.integer  "recipe_step_id"
   end
 
   create_table "recipes", force: true do |t|
@@ -97,11 +98,10 @@ ActiveRecord::Schema.define(version: 20140609193509) do
   end
 
   create_table "step_ingredients", force: true do |t|
-    t.integer  "step_id"
     t.integer  "ingredient_id"
-    t.integer  "step_number"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "recipe_step_id"
   end
 
 end

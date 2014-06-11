@@ -1,4 +1,4 @@
 class StepIngredient < ActiveRecord::Base
-  has_many :ingredients
-  belongs_to :recipe
+  belongs_to :ingredient
+  belongs_to :recipe_step
 end

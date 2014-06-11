@@ -2,10 +2,10 @@
 
 <ul>
 	<% @ingredient.allergens.each do |allergen| %>
-	
-	
+
+
 		<li><a href="<%= allergen_url(allergen.id) %>"><%= allergen.name %></a></li> <!-- link to allergin show page eventually -->
-	
+
 	<% end %>
 </ul>
 
@@ -14,13 +14,13 @@
 	<%= auth_token %>
 
   <div class="input">
-    <label for="allergen-name">Allergen</label>		
+    <label for="allergen-name">Allergen</label>
     <input type="text" id="allergen-name" name="allergen[name]" value="">
 	</div>
-	
+
 
   <div class="submit">
     <input type="submit" value="Submit">
   </div>
 </form>
-	
+<a href="<%= ingredients_url %>" >

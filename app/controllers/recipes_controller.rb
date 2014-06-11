@@ -1,4 +1,5 @@
 class RecipesController < ApplicationController
+  before_action :require_logged_in
 
   def new
     @recipe = Recipe.new
@@ -26,7 +27,7 @@ class RecipesController < ApplicationController
   def show
     @recipe = Recipe.find(params[:id])
     # every ingredient step
-    
+
   end
 
   def index
