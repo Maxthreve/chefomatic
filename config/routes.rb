@@ -4,7 +4,7 @@ Chefomatic::Application.routes.draw do
   get "ingredients/add"
   get "recipe_ingredients/add"
   get "recipe_ingredient/add"
-  get "welcome/index"
+
   devise_for :dietitians
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
