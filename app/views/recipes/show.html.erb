@@ -1,18 +1,13 @@
 <p>
-  <strong> Name: </strong>
-  <%= @recipe.name %> <br>
-
+  <h2> 
+    <%= @recipe.name %> <br>
+  </h2>
   <!-- <%= @recipe.prep_time%>/ -->
 
 </p>
-<p>
-	<strong>Prep Time</strong>
-	<%= @recipe.prep_time %>
-
-</p>
-
+	<h2> Ingredients List</h2>
 <% @recipe.recipe_ingredients.each do |recipe_ingredient| %>
-
+	
 	<a href="<%= ingredient_url(recipe_ingredient.ingredient) %>"><%= recipe_ingredient.ingredient.name %></a>
 
 	<form action="<%= recipe_recipe_ingredient_url(@recipe.id, recipe_ingredient.id) %>" method="post">
