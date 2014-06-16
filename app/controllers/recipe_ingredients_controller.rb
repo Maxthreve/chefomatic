@@ -2,16 +2,20 @@ class RecipeIngredientsController < ApplicationController
 before_action :require_logged_in
 
   def create
-    # fail
+    # get the recipe id
     @recipe = Recipe.find(params[:recipe_id])
 
-    #must change name to an ingredient_id (or create the ingredient first)
+    # must change name to an ingredient_id (or create the ingredient first)
+    # first try to see if an ingredient exists through the recipe_ingredient relationship
     @ingredient = Ingredient.find_by_name(params[:recipe_ingredient][:name])
+    # if the relationship does not exits create a ingredient name 
+    # with the same name of the recipe ingredient and save it 
     if !@ingredient
       @ingredient = Ingredient.create({name: params[:recipe_ingredient][:name]})
       @ingredient.save
     end
 
+    # create a hash relating an ingredient to the recipe ingredient 
     recipe_ingredient_hash = {ingredient_id: @ingredient.id}.merge(recipe_ingredient_params)
     recipe_ingredient_hash.delete("name")
 

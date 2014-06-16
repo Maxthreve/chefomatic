@@ -2,12 +2,13 @@
   <h2> 
     <%= @recipe.name %> <br>
   </h2>
-  <!-- <%= @recipe.prep_time%>/ -->
+ 
 
 </p>
 	<h2> Ingredients List</h2>
+	<!-- list out all of the recipe ingredients -->
+
 <% @recipe.recipe_ingredients.each do |recipe_ingredient| %>
-	
 	<a href="<%= ingredient_url(recipe_ingredient.ingredient) %>"><%= recipe_ingredient.ingredient.name %></a>
 
 	<form action="<%= recipe_recipe_ingredient_url(@recipe.id, recipe_ingredient.id) %>" method="post">
@@ -79,14 +80,16 @@
 	<form action="<%= recipe_recipe_steps_url(@recipe.id)%>" method="post">
 		
 		<%= auth_token %>
+		
+
 		<div class="input">
 		<label for"step_number">Step</label>
-		<input type="text" id="step_number" name="recipe_step[step_number]" value="">
+		<input type="text" id="step_number" name="recipe_step[step_number]" value="new step">
 		</div>
 		
 		<div class="input">
 		<label for"directions">Directions</label>
-		<textarea  id="directions" name="recipe_step[directions]"></textarea>
+		<textarea  id="directions" name="recipe_step[directions]" value="enter text"></textarea>
 		</div>
 		
 		<div class="submit">
@@ -94,7 +97,6 @@
 	  	</div>
 	
 	</form>
-
 
 
 <%= link_to 'Back', recipes_path %>
